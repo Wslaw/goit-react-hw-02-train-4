@@ -1,0 +1,31 @@
+.btn {
+  margin: 20px 15px 15px 0;
+  padding: 15px 20px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 1px solid #c4bdbd;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 500;
+  opacity: 0.8;
+
+}
+.btn:hover{
+    background-color: rgb(145, 137, 137);
+    color: beige;
+    border: 1px solid #fff;
+}
+.btn:active{
+    background-color: rgb(244, 146, 53);
+    color: rgb(16, 9, 6);
+    border: 1px solid #e87c2f;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.text {
+     margin-right: 10px;
+}
