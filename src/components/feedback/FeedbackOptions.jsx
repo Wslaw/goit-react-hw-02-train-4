@@ -6,10 +6,12 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     <div className={styles.action}>
       {options.map(option => (
         <button
-          onClick={() => onLeaveFeedback(option)}
           key={option}
           type="button"
           className={styles.btn}
+          onClick={() => {
+            onLeaveFeedback(option);
+          }}
         >
           {option.charAt(0).toUpperCase() + option.slice(1)}
         </button>
@@ -19,3 +21,4 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 export default FeedbackOptions;
+

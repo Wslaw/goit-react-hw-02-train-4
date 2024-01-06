@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import Section from './feedback/Section';
-// import FeedbackForm from './feedback/FeedbackForm';
-import FeedbackOptions from './feedback/FeedbackOptions';
 import Statistics from './feedback/Statistics';
-import styles from './feedback/feedback.module.css'
+import FeedbackOptions from './feedback/FeedbackOptions';
+import Notification from './feedback/Notification';
 
-class App extends Component {
+export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
-  handleFeedback = option => {
+  handleFeedback = type => {
     this.setState(prevState => ({
-      [option]: prevState[option] + 1,
+      [type]: prevState[type] + 1,
     }));
   };
 
@@ -31,6 +31,7 @@ class App extends Component {
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 20,
+          color: '#010101',
         }}
       >
         <Section title="Please leave feedback">
@@ -39,9 +40,10 @@ class App extends Component {
             onLeaveFeedback={this.handleFeedback}
           />
         </Section>
-
         <Section title="Statistics">
-          {total > 0 ? (
+          {total === 0 ? (
+            <Notification message='There is no feedback' />
+          ) : (
             <Statistics
               good={good}
               neutral={neutral}
@@ -51,10 +53,6 @@ class App extends Component {
                 total === 0 ? 0 : Math.round((good / total) * 100)
               }
             />
-          ) : (
-            <div className={styles.result}>
-              <p className={styles.text}>There is no feedback yet.</p>
-            </div>
           )}
         </Section>
       </div>
@@ -62,4 +60,3 @@ class App extends Component {
   }
 }
 
-export default App;
